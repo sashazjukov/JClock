@@ -1,0 +1,34 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JClock"
+        xmlns:properties="clr-namespace:JClock.Properties" x:Class="JClock.MainWindow"
+        mc:Ignorable="d"        
+        Background="Green"
+        Topmost="True"
+        BorderThickness="1"
+        AllowsTransparency="True"
+        Name="MyMainWindow"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        
+        Title="JClock" Height="100" Width="260" WindowStyle="None" ResizeMode="CanResizeWithGrip">
+
+    <Window.Resources>
+        <local:FontConverter x:Key="FontConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="LTime" Content="{Binding TimeNow, FallbackValue=10:30:23, Mode=OneWay, NotifyOnTargetUpdated=True, StringFormat=\{0:G\}}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Foreground="White" Grid.RowSpan="2">
+            <Label.FontSize>
+                <Binding Path="ActualHeight" Converter="{StaticResource FontConverter}" Mode="OneWay"
+                     RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}" />
+            </Label.FontSize>
+        </Label>
+    </Grid>
+</Window>
