@@ -32,6 +32,23 @@ namespace JClock
             _timer = new Timer(Callback, null,0,1000);
             this.MouseDown +=Window_MouseDown;
             TimeNow = DateTime.Now.ToString("T");
+            this.MouseMove+=OnMouseMove;
+            this.MouseLeave+=OnMouseLeave;
+
+            BClose.Visibility = Visibility.Collapsed;
+            BTitle.Visibility = Visibility.Collapsed;
+        }
+
+        private void OnMouseLeave(object sender, MouseEventArgs mouseEventArgs)
+        {
+            BClose.Visibility = Visibility.Collapsed;
+            BTitle.Visibility = Visibility.Collapsed;
+        }
+
+        private void OnMouseMove(object sender, MouseEventArgs mouseEventArgs)
+        {
+            BClose.Visibility = Visibility.Visible;
+            BTitle.Visibility = Visibility.Visible;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -50,6 +67,27 @@ namespace JClock
         {
             Application.Current.Dispatcher.Invoke(new Action(() => { TimeNow = DateTime.Now.ToString("T"); }));
             
+        }
+
+        private void UIElement_OnMouseMove(object sender, MouseEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void BClose_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BClose_OnMouseLeave(object sender, MouseEventArgs e)
+        {
+            BClose.Background = Brushes.Transparent;
+        }
+
+        private void BClose_OnMouseEnter(object sender, MouseEventArgs e)
+        {
+            BClose.Background = Brushes.Red;
+            e.Handled = true;
         }
     }
 }
