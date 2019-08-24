@@ -23,7 +23,7 @@ namespace JClock
     public partial class MainWindow : Window
     {
         private Timer _timer;
-        public static readonly DependencyProperty TimeNowProperty = DependencyProperty.Register("TimeNow", typeof(object), typeof(MainWindow), new PropertyMetadata(default(object)));
+        public static readonly DependencyProperty TimeNowProperty = DependencyProperty.Register("TimeNow", typeof(DateTime), typeof(MainWindow), new PropertyMetadata(default(DateTime)));
 
         public MainWindow()
         {
@@ -31,7 +31,7 @@ namespace JClock
             DataContext = this;
             _timer = new Timer(Callback, null,0,1000);
             this.MouseDown +=Window_MouseDown;
-            TimeNow = DateTime.Now.ToString("T");
+            TimeNow = DateTime.Now;
             this.MouseMove+=OnMouseMove;
             this.MouseLeave+=OnMouseLeave;
 
@@ -57,15 +57,15 @@ namespace JClock
                 this.DragMove();
         }
 
-        public object TimeNow
+        public DateTime TimeNow
         {
-            get { return (object) GetValue(TimeNowProperty); }
+            get { return (DateTime) GetValue(TimeNowProperty); }
             set { SetValue(TimeNowProperty, value); }
         }
 
         private void Callback(object state)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() => { TimeNow = DateTime.Now.ToString("T"); }));
+            Application.Current.Dispatcher.Invoke(new Action(() => { TimeNow = DateTime.Now; }));
             
         }
 

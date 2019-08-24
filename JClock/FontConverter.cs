@@ -8,8 +8,8 @@ namespace JClock
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            
-            Double result = (int.Parse(value.ToString()) / 1)*(30.0/50) ; 
+            Double rate = Double.Parse(parameter.ToString());
+            Double result = (int.Parse(value.ToString()) / 1)*(30.0/50)* (rate/100); 
             return result;
         }
 

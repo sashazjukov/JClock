@@ -35,19 +35,15 @@
         <Border Panel.ZIndex="5" Name="BClose" MouseEnter="BClose_OnMouseEnter" Width="25" MouseLeave="BClose_OnMouseLeave" MouseLeftButtonDown="BClose_OnMouseLeftButtonDown" MouseMove="UIElement_OnMouseMove" BorderThickness="1" Grid.Column="2"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
             <Label Content="X" Foreground="White"  FontSize="15" Padding="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" />
         </Border>
-        
-        <Label Panel.ZIndex="2" x:Name="LTime" VerticalAlignment="Stretch" HorizontalAlignment="Center" Foreground="White" Grid.Row="1" Padding="0,0,0,0" Margin="0,-25,0,0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-            <Label.FontSize>
-                <Binding Path="ActualHeight" Converter="{StaticResource FontConverter}" ElementName="LTime" FallbackValue="40"
-                         Mode="OneWay" NotifyOnTargetUpdated="True" />
-            </Label.FontSize>
-            <Label.Content>
-                <Binding Path="TimeNow" FallbackValue="10:30:23" Mode="OneWay" NotifyOnTargetUpdated="True"
-                         StringFormat="\{0:G\}" />
-            </Label.Content>
-        </Label>
 
-        <Rectangle Visibility="Collapsed" Grid.Row="2" Grid.ColumnSpan="3" Margin="20,5,20,10" >
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Stretch" x:Name="spTime" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Grid.RowSpan="2">
+                <TextBlock VerticalAlignment="Center">
+                    <Run Foreground="White"  FontSize="{Binding ActualHeight, Converter={StaticResource FontConverter}, ElementName=spTime, FallbackValue=40, Mode=OneWay, NotifyOnTargetUpdated=True, ConverterParameter=100}" Text="{Binding TimeNow, FallbackValue=10:30, Mode=OneWay, NotifyOnTargetUpdated=True, StringFormat={}{0:HH:mm} }"  />
+                    <Run Foreground="#55FFFFFF"  FontSize="{Binding ActualHeight, Converter={StaticResource FontConverter}, ElementName=spTime, FallbackValue=40, Mode=OneWay, NotifyOnTargetUpdated=True, ConverterParameter=70}" Text="{Binding TimeNow, FallbackValue=:30, Mode=OneWay, NotifyOnTargetUpdated=True, StringFormat={}:{0:ss} }"  />
+                </TextBlock>
+            </StackPanel>
+
+            <Rectangle Visibility="Collapsed" Grid.Row="2" Grid.ColumnSpan="3" Margin="20,5,20,10" >
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="1"/>
