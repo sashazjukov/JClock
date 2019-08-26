@@ -19,22 +19,22 @@
         <local:FontConverter x:Key="FontConverter"/>
     </Window.Resources>
     <Border BorderThickness="1" BorderBrush="Black" >
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="48"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="25"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Name="RDMidleRow" Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Name="RDMidleRow" Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <Label Name="BTitle" Foreground="White" Content="jClock" Grid.Column="0" FontSize="15" Padding="0" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Margin="5,0,0,0" />
-        <Border Panel.ZIndex="5" Name="BClose" MouseEnter="BClose_OnMouseEnter" Width="25" MouseLeave="BClose_OnMouseLeave" MouseLeftButtonDown="BClose_OnMouseLeftButtonDown" MouseMove="UIElement_OnMouseMove" BorderThickness="1" Grid.Column="2"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-            <Label Content="X" Foreground="White"  FontSize="15" Padding="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" />
-        </Border>
+            <Label Name="BTitle" Foreground="White" Content="jClock" Grid.Column="0" FontSize="15" Padding="0" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Margin="5,0,0,0" />
+            <Border Panel.ZIndex="5" Name="BClose" MouseEnter="BClose_OnMouseEnter" Width="25" MouseLeave="BClose_OnMouseLeave" MouseLeftButtonDown="BClose_OnMouseLeftButtonDown" MouseMove="UIElement_OnMouseMove" BorderThickness="1" Grid.Column="2"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <Label Content="X" Foreground="White"  FontSize="15" Padding="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" />
+            </Border>
 
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Stretch" x:Name="spTime" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Grid.RowSpan="2">
                 <TextBlock VerticalAlignment="Center">
@@ -43,21 +43,22 @@
                 </TextBlock>
             </StackPanel>
 
-            <Rectangle Visibility="Collapsed" Grid.Row="2" Grid.ColumnSpan="3" Margin="20,5,20,10" >
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="1"/>
-                    <GradientStop Color="White"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-            <Rectangle.Stroke>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Stroke>
-        </Rectangle>
 
-    </Grid>
+            <StackPanel Name="spOverview" Visibility="Collapsed" HorizontalAlignment="Left" Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="200" Margin="20,0,20,10" >
+                <Rectangle Canvas.Left="0" Visibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Margin="1" Width="10" Fill="#FF9CB5F5"  />
+                <Rectangle Canvas.Left="0" Visibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Margin="1" Width="30" Fill="#FF9CB5F5" />
+                <Rectangle Canvas.Left="0" Visibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="10" Fill="Red" />
+                <Rectangle Canvas.Left="0" Visibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="50" Fill="#FF9CB5F5" />
+                <Rectangle Canvas.Left="0" Visibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="50" Fill="Orange"  />
+            </StackPanel>
+            <Rectangle Canvas.Left="0" Visibility="Collapsed" HorizontalAlignment="Left"  Grid.Row="2" Grid.ColumnSpan="3" Height="20" Width="2" Margin="100,0,20,10" Fill="#FD0017FF"/>
+            <!--<Canvas  Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="200" Margin="20,0,20,10"  >
+                <Rectangle Canvas.Left="0" Visibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="200" Fill="#FF9CB5F5" Stroke="#FF1346F3" />
+                <Rectangle Canvas.Left="60" Visibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="10"   Fill="Red" Stroke="#FF1346F3" />
+                <Rectangle Canvas.Left="5" Visibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="10"   Fill="Orange" Stroke="#FF1346F3" />
+            </Canvas>-->
+
+
+        </Grid>
     </Border>
 </Window>
