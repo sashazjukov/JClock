@@ -9,7 +9,7 @@ namespace JClock
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             Double rate = Double.Parse(parameter.ToString());
-            Double result = (int.Parse(value.ToString()) / 1)*(30.0/50)* (rate/100); 
+            Double result = (double.Parse(value.ToString(),CultureInfo.CurrentUICulture) / 1)*(30.0/50)* (rate/100); 
             return result;
         }
 

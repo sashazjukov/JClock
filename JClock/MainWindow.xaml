@@ -27,8 +27,8 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
-                <RowDefinition Name="RDMidleRow" Height="*"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Name="RDMidleRow" Height="70*"/>
+                <RowDefinition Height="25*"/>
             </Grid.RowDefinitions>
 
             <Label Name="BTitle" Foreground="White" Content="jClock" Grid.Column="0" FontSize="15" Padding="0" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Margin="5,0,0,0" />
@@ -51,6 +51,17 @@
                 <Rectangle Canvas.Left="0" Visibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="50" Fill="#FF9CB5F5" />
                 <Rectangle Canvas.Left="0" Visibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="50" Fill="Orange"  />
             </StackPanel>
+            
+            <Grid Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+                
+                <local:FullDayHourView x:Name="FullDayHourViewElement" Grid.Column="1" ></local:FullDayHourView>    
+            </Grid>
+            
             <Rectangle Canvas.Left="0" Visibility="Collapsed" HorizontalAlignment="Left"  Grid.Row="2" Grid.ColumnSpan="3" Height="20" Width="2" Margin="100,0,20,10" Fill="#FD0017FF"/>
             <!--<Canvas  Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="200" Margin="20,0,20,10"  >
                 <Rectangle Canvas.Left="0" Visibility="Visible" Grid.Row="2" Grid.ColumnSpan="3" Height="10" Width="200" Fill="#FF9CB5F5" Stroke="#FF1346F3" />

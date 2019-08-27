@@ -65,7 +65,11 @@ namespace JClock
 
         private void Callback(object state)
         {
-            Application.Current.Dispatcher.Invoke(new Action(() => { TimeNow = DateTime.Now; }));
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                TimeNow = DateTime.Now;
+                FullDayHourViewElement.UpdateHourProgress(TimeNow);
+            }));
             
         }
 
