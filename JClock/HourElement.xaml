@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="20" d:DesignWidth="20">
     <Grid>
-        <Rectangle Margin="1" Fill="Black"  StrokeThickness="1"></Rectangle>
+        <Rectangle RadiusX="3" RadiusY="3" Margin="1" Fill="Black"  StrokeThickness="1"></Rectangle>
         <TextBlock FontSize="10" Name="hourText" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFEEEEEE">10</TextBlock>
         <ProgressBar Name="HourProgressElement" Margin="2" Maximum="60" Value="40" Opacity="50" Background="#00E6E6E6" Foreground="#4C06B025" BorderBrush="#00BCBCBC"></ProgressBar>
         <!--Foreground="#4C06B025"-->

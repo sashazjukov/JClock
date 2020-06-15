@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JClock"
              mc:Ignorable="d" 
-             d:DesignHeight="30" d:DesignWidth="400">
+             d:DesignHeight="60" d:DesignWidth="400">
     <Grid>
         <Grid Name="ParentGrid">
             <Grid.ColumnDefinitions>
@@ -32,6 +32,11 @@
                 <ColumnDefinition Width="1*"/>
 
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="80*"/>
+            </Grid.RowDefinitions>
 
         </Grid>
     </Grid>
